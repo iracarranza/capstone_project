@@ -8,62 +8,17 @@
 </head>
 <body>
 
-<!-- website sidebar -->
-<aside class="sidebar">
-  <h1>Ira Carranza</h1>
-  <p>Musician • Educator • Student</p>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li>
-          <a href="about.html">About</a>
-          <ul>
-            <li><a href="about.html#bio">Bio</a></li>
-            <li><a href="about.html#statement">Statement of Purpose</a></li>
-          </ul>
-        </li>
-      <li>
-        <a href="elementary.html">Elementary Lesson Plans</a>
-        <ul>
-          <li><a href="#soundtrap">Soundtrap</a></li>
-          <li><a href="#canva">Canva Poster</a></li>
-          <li><a href="#hyperdoc">HyperDoc</a></li>
-          <li><a href="#accompaniment">ME-211 Accompaniment</a></li>
-          <li><a href="#finalproject">Final Project</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="middle.html">Middle School Lesson Plans</a>
-        <ul>
-          <li><a href="#classroom">Classroom Instruments</a></li>
-          <li><a href="#repertoire">Repertoire Collection</a></li>
-          <li><a href="#unitplan">Unit Plan</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="high.html">High School Lesson Plans</a>
-        <ul>
-          <li><a href="#podcast">Podcast/Slide Deck</a></li>
-          <li><a href="#youtube">YouTube Lesson Strategies</a></li>
-          <li><a href="#screencast">Screencast</a></li>
-          <li><a href="#webliography">Webliography</a></li>
-          <li><a href="#reflection">Reflection</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="studentwork.html">Student Work</a>
-        <ul>
-          <li><a href="#videos">Videos</a></li>
-          <li><a href="#chorallesson">Lesson Plan</a></li>
-        </ul>
-      </li>
-      <li><a href="bas.html">BAS</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="resume.html">Resume</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</aside>
+  <div id="sidebar-container"></div>
+
+  <!-- JavaScript to fetch sidebar -->
+  <script>
+    fetch('sidebar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('sidebar-container').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading sidebar:', error));
+  </script>
 
   <!-- Main Content -->
   <main class="content">
@@ -75,19 +30,16 @@
         <ul class="home-links">
           <li><a href="about.html#bio">About Me</a></li>
           <li><a href="about.html#statement">Statement of Purpose</a></li>
-          <li><a href="#me152">ME-152 Projects</a></li>
-          <li><a href="#me211">ME-211 Projects</a></li>
-          <li><a href="#me326">ME-326 Projects</a></li>
-          <li><a href="#me311">ME-311 Lesson Plan</a></li>
-          <li><a href="#choral">Choral Conducting</a></li>
-          <li><a href="#bas">BAS Portfolio</a></li>
-          <li><a href="#blog">Blog & Reflections</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="elementary.html">Elementary Lesson Plans</a></li>
+          <li><a href="middle.html">Middle School Lesson Plans</a></li>
+          <li><a href="high.html">High School Lesson Plans</a></li>
+          <li><a href="studentwork.html">Student Work</a></li>
+          <li><a href="bas.html">BAS Portfolio</a></li>
+          <li><a href="blog.html">Blog & Reflections</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </section>
-
-    <!-- Repeat similar structure for other sections like ME-152, ME-211, etc. -->
 
     <section id="contact">
       <h2>Contact</h2>
