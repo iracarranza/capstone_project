@@ -41,23 +41,54 @@
         </ul>
       </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <form action="mailto:youremail@example.com" method="post" enctype="text/plain">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required />
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <button type="submit">Submit</button>
-      </form>
-      <p>Phone: (201)-494-1316</p>
-      <p>Email: <a href="mailto:icarranza@berklee.edu">icarranza@berklee.edu</a></p>
-    </section>
+      <div id="pdf-carousel" style="max-width: 100%;">
+        <p>Here are some examples of my work!</p>
+        <embed id="pdf-viewer" src="assets/analysis.pdf" type="application/pdf" width="50%" height="600px" />
+        <div class="carousel-controls">
+          <button onclick="prevPDF()">⟵ Previous</button>
+          <button onclick="nextPDF()">Next ⟶</button>
+        </div>
+        <p id="pdf-title" style="text-align: center; font-weight: bold; margin-top: 8px;">Concert Band Program</p>
+        <p style="text-align: center;"><a id="download-link" href="assets/analysis.pdf" target="_blank">Download PDF</a></p>
+      </div>
+      
+      <script>
+        const pdfs = [
+          {
+            file: "assets/analysis.pdf",
+            title: "Concert Band Program"
+          },
+          {
+            file: "assets/guitar.pdf",
+            title: "Chrome Lab Oscillator"
+          },
+          {
+            file: "assets/grade12_production_unit.pdf",
+            title: "Grade 12 Unit Plan: Producing in Logic Pro"
+          }
+        ];
+        let currentIndex = 0;
+      
+        function updatePDF() {
+          const viewer = document.getElementById("pdf-viewer");
+          const title = document.getElementById("pdf-title");
+          const link = document.getElementById("download-link");
+      
+          viewer.src = pdfs[currentIndex].file;
+          title.textContent = pdfs[currentIndex].title;
+          link.href = pdfs[currentIndex].file;
+        }
+      
+        function prevPDF() {
+          currentIndex = (currentIndex - 1 + pdfs.length) % pdfs.length;
+          updatePDF();
+        }
+      
+        function nextPDF() {
+          currentIndex = (currentIndex + 1) % pdfs.length;
+          updatePDF();
+        }
+      </script>
   </main>
 
 </body>
